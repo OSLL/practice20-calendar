@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.widget.CalendarView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
-import android.widget.Button
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     //Дата, месяц и год
@@ -14,6 +13,14 @@ class MainActivity : AppCompatActivity() {
     public var date : Int = 0
     public var month : Int = 0
     public var year : Int = 0
+
+    init {
+        // По умолчанию выставляются текущие дата, месяц, год
+        val c = Calendar.getInstance()
+        date = c.get(Calendar.DATE);
+        month = c.get(Calendar.MONTH);
+        year = c.get(Calendar.YEAR);
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         // Клик по кнопке добалвения события
         fab.setOnClickListener {
             /*
-                
+
                 Код открытия формы добавления события
                 ! Дата, месяц и год заполняются автоматически из меременных date, month, year, которые выставляются при клике на дату в календаре
 
