@@ -6,6 +6,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+import com.makentoshe.androidgithubcitemplate.EventActivity
+
+
 
 class MainActivity : AppCompatActivity() {
     //Дата, месяц и год
@@ -37,13 +40,8 @@ class MainActivity : AppCompatActivity() {
 
         // Клик по кнопке добалвения события
         fab.setOnClickListener {
-            /*
-
-                Код открытия формы добавления события
-                ! Дата, месяц и год заполняются автоматически из меременных date, month, year, которые выставляются при клике на дату в календаре
-
-             */
-
+            val event = EventActivity()
+            event.createEvent(date, month, year)
 
             Toast.makeText(this, "Button click. The selected date is $date. $month .$year", Toast.LENGTH_LONG).show()
         }
