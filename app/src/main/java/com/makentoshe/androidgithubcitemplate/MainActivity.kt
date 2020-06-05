@@ -32,6 +32,10 @@ class MainActivity : AppCompatActivity() {
         //Клик по дате в календаре
         calendar_view.setOnDateChangeListener(object : CalendarView.OnDateChangeListener {
             override fun onSelectedDayChange(p0: CalendarView, p1: Int, p2: Int, p3: Int) {
+                if (date == p3 && month==p2 + 1 && year == p1) {
+                    
+                }
+
                 date = p3
                 month = p2 + 1
                 year = p1
