@@ -1,5 +1,6 @@
 package com.makentoshe.androidgithubcitemplate
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils.loadAnimation
@@ -77,9 +78,8 @@ class MainActivity : AppCompatActivity() {
 
         // Клик по кнопке добалвения события
         addEvent.setOnClickListener {
-
-            val event = EventActivity()
-            event.createEvent(date, month, year)
+            val intent = Intent(this, EventActivity::class.java)
+            startActivity(intent)
 
         }
     }
