@@ -9,7 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".AnotherActivity"
+            android:label="Note"
+            android:parentActivityName=".RecycleViewActivity" />
+        <activity
+            android:name=".RecycleViewActivity"
+            android:label="Notes List"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".MainActivity"
+            android:label="Calendar List">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

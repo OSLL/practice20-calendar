@@ -1,5 +1,7 @@
 package com.makentoshe.androidgithubcitemplate
 
+import android.content.Intent
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils.loadAnimation
@@ -35,15 +37,13 @@ class MainActivity : AppCompatActivity() {
         //Клик по дате в календаре
         calendar_view.setOnDateChangeListener(object : CalendarView.OnDateChangeListener {
             override fun onSelectedDayChange(p0: CalendarView, p1: Int, p2: Int, p3: Int) {
+
                 if (date == p3 && month==p2 + 1 && year == p1) {
 
-                    /*
-
-                    Модуль по открытию страницы событий на дату
-
-                     */
-
-                    Toast.makeText(applicationContext, "Double click", Toast.LENGTH_LONG).show()
+                    // Модуль по открытию страницы событий на дату
+                    val intent = Intent(this@MainActivity, RecycleViewActivity::class.java)
+                    startActivity(intent)
+                    //Toast.makeText(applicationContext, "Double click", Toast.LENGTH_LONG).show()
                 }
 
                 date = p3
