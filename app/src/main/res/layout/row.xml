@@ -37,7 +37,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="Title"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -57,25 +57,25 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="Description"
-            android:textColor="@color/colorLightGrey"
+            android:textColor="@color/colorBlack"
             android:textSize="15sp" />
 
         <ImageButton
             android:id="@+id/imageButtonChange"
             android:layout_width="35dp"
             android:layout_height="50dp"
-            app:srcCompat="@drawable/ic_baseline_edit_24"
             android:layout_alignParentRight="true"
-            />
+            android:backgroundTint="#26EFDD"
+            app:srcCompat="@drawable/ic_baseline_edit_24" />
 
         <ImageButton
             android:id="@+id/imageButtonDelete"
             android:layout_width="40dp"
             android:layout_height="50dp"
-            android:layout_toLeftOf="@id/imageButtonChange"
             android:layout_marginRight="2dp"
-            app:srcCompat="@drawable/ic_baseline_delete_forever_24"
-            />
+            android:layout_toLeftOf="@id/imageButtonChange"
+            android:backgroundTint="#26EFDD"
+            app:srcCompat="@drawable/ic_baseline_delete_forever_24" />
 
     </RelativeLayout>
 
