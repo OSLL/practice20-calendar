@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
 import android.app.TimePickerDialog
 import android.app.TimePickerDialog.OnTimeSetListener
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.view.View
@@ -13,6 +14,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
 import fr.ganfra.materialspinner.MaterialSpinner
+import kotlinx.android.synthetic.main.activity_event.*
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 
@@ -68,6 +71,13 @@ class EventActivity : AppCompatActivity() {
             picker.show()
         }
 
+        /*
+        discardButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        */
+
         val ITEMS =
             arrayOf("Deadlines", "Daily routine", "Holidays", "Entertainment", "Meetings")
         val adapter =
@@ -112,6 +122,8 @@ class EventActivity : AppCompatActivity() {
         }
     }
 
+
+
     fun confirmInput(v: View?) {
         if (!validateTitle() || !validateDate() || !validateTime()) {
             return
@@ -122,6 +134,12 @@ class EventActivity : AppCompatActivity() {
         var date = datePicker.text.toString()
         var time = timePicker.text.toString()
         var category = category.selectedItem
+
+        /*
+
+        Сохранение события в память/БД
+
+         */
 
         var input = "Title: $title"
         input += "\n"
