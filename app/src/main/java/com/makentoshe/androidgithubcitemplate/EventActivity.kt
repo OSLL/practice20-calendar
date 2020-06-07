@@ -6,17 +6,35 @@ import android.app.TimePickerDialog
 import android.app.TimePickerDialog.OnTimeSetListener
 import android.os.Bundle
 import android.text.InputType
+import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.textfield.TextInputLayout
+import fr.ganfra.materialspinner.MaterialSpinner
 import java.util.*
 
 
 class EventActivity : AppCompatActivity() {
+
+    private lateinit var textInputTitle: TextInputLayout
+    private lateinit var textInputDescription: TextInputLayout
+    private lateinit var datePicker: EditText
+    private lateinit var timePicker: EditText
+    private lateinit var category: MaterialSpinner
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event)
 
-        val datePicker : EditText = findViewById(R.id.date)
+        this.textInputTitle = findViewById(R.id.title)
+        this.textInputDescription = findViewById(R.id.description)
+        this.timePicker = findViewById(R.id.time)
+        this.datePicker = findViewById(R.id.date)
+        this.category = findViewById(R.id.category)
+
+
         datePicker.setRawInputType(InputType.TYPE_NULL)
         datePicker.setOnClickListener {
             val cldr : Calendar = Calendar.getInstance()
@@ -34,7 +52,6 @@ class EventActivity : AppCompatActivity() {
             picker.show()
         }
 
-        val timePicker : EditText = findViewById(R.id.time)
         timePicker.setRawInputType(InputType.TYPE_NULL)
         timePicker.setOnClickListener {
             val cldr : Calendar = Calendar.getInstance()
@@ -51,6 +68,70 @@ class EventActivity : AppCompatActivity() {
             picker.show()
         }
 
+        val ITEMS =
+            arrayOf("Deadlines", "Daily routine", "Holidays", "Entertainment", "Meetings")
+        val adapter =
+            ArrayAdapter(this, R.layout.item_spinner, ITEMS)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val spinner = findViewById(R.id.category) as MaterialSpinner
+        spinner.setAdapter(adapter)
 
+
+    }
+
+    private fun validateTitle(): Boolean {
+        val titleInput: String = textInputTitle.editText?.text.toString().trim()
+        return if (titleInput.isEmpty()) {
+            textInputTitle.error = "Field can't be empty"
+            false
+        } else {
+            textInputTitle.error = null
+            true
+        }
+    }
+
+    private fun validateDate(): Boolean {
+        val dateInput: String = datePicker.text.toString().trim()
+        return if (dateInput.isEmpty()) {
+            datePicker.error = "Field can't be empty"
+            false
+        } else {
+            datePicker.error = null
+            true
+        }
+    }
+
+    private fun validateTime(): Boolean {
+        val timeInput: String = timePicker.text.toString().trim()
+        return if (timeInput.isEmpty()) {
+            timePicker.error = "Field can't be empty"
+            false
+        } else {
+            timePicker.error = null
+            true
+        }
+    }
+
+    fun confirmInput(v: View?) {
+        if (!validateTitle() || !validateDate() || !validateTime()) {
+            return
+        }
+
+        var title = textInputTitle.editText?.text.toString()
+        var description = textInputDescription.editText?.text.toString()
+        var date = datePicker.text.toString()
+        var time = timePicker.text.toString()
+        var category = category.selectedItem
+
+        var input = "Title: $title"
+        input += "\n"
+        input += "Description: $description"
+        input += "\n"
+        input += "Date: $date"
+        input += "\n"
+        input += "Time: $time"
+        input += "\n"
+        input += "Category: $category"
+        Toast.makeText(this, input, Toast.LENGTH_SHORT).show()
     }
 }
