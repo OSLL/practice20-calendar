@@ -20,7 +20,8 @@ class AnotherActivity : AppCompatActivity() {
         val aImageView = intent.getIntExtra("iImageView",0)
 
         // set title in another activity
-        actionBar.setTitle(aTitle)
+        // actionBar.setTitle(aTitle)
+
         a_title.text = aTitle
         a_description.text = aDescription
         imageView.setImageResource(aImageView)

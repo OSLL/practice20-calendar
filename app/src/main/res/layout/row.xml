@@ -11,7 +11,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="82dp"
         android:padding="16dp"
         >
 
@@ -23,31 +23,58 @@
             />
 
         <TextView
+            android:id="@+id/titleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/titleTv"
-            android:text="Title"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorBlack"
-            android:layout_toRightOf="@+id/imageIv"
-            android:layout_toEndOf="@id/imageIv"
-            android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
-            />
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/imageButtonDelete"
+            android:layout_toEndOf="@id/imageIv"
+            android:layout_toRightOf="@+id/imageIv"
+            android:singleLine = "false"
+            android:lines = "1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Title"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/descriptionTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/descriptionTv"
-            android:text="Description"
-            android:textSize="15sp"
-            android:textColor="@color/colorLightGrey"
-            android:layout_toRightOf="@+id/imageIv"
-            android:layout_toEndOf="@id/imageIv"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
             android:layout_below="@id/titleTv"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/imageButtonDelete"
+            android:layout_toEndOf="@id/imageIv"
+            android:layout_toRightOf="@+id/imageIv"
+            android:singleLine = "false"
+            android:lines = "1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Description"
+            android:textColor="@color/colorLightGrey"
+            android:textSize="15sp" />
+
+        <ImageButton
+            android:id="@+id/imageButtonChange"
+            android:layout_width="35dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/ic_baseline_edit_24"
+            android:layout_alignParentRight="true"
+            />
+
+        <ImageButton
+            android:id="@+id/imageButtonDelete"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@id/imageButtonChange"
+            android:layout_marginRight="2dp"
+            app:srcCompat="@drawable/ic_baseline_delete_forever_24"
             />
 
     </RelativeLayout>

@@ -4,14 +4,13 @@ import android.content.Intent
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.view.animation.AnimationUtils.loadAnimation
-import android.widget.Button
 import android.widget.CalendarView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import android.view.animation.AnimationUtils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.row.*
 import java.util.*
 
 
@@ -43,7 +42,6 @@ class MainActivity : AppCompatActivity() {
                     // Модуль по открытию страницы событий на дату
                     val intent = Intent(this@MainActivity, RecycleViewActivity::class.java)
                     startActivity(intent)
-                    //Toast.makeText(applicationContext, "Double click", Toast.LENGTH_LONG).show()
                 }
 
                 date = p3
@@ -79,8 +77,8 @@ class MainActivity : AppCompatActivity() {
         addEvent.setOnClickListener {
             val intent = Intent(this, EventActivity::class.java)
             startActivity(intent)
-
         }
+
     }
 
     public fun retrunButtonHideShow(d:Int,m:Int,y:Int) {
