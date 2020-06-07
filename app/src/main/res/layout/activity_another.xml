@@ -10,8 +10,8 @@
     tools:context=".AnotherActivity">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:id="@+id/imageView"
         android:src="@mipmap/ic_launcher"
         android:layout_centerHorizontal="true"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/a_title"
         android:text="Title"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"
         android:gravity="center"
