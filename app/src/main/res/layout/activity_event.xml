@@ -29,7 +29,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_email"
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
@@ -40,7 +40,7 @@
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_username"
+        android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -52,13 +52,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <fr.ganfra.materialspinner.MaterialSpinner
-        android:id="@+id/spinner1"
+        android:id="@+id/category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:ms_arrowColor="#03dac5"
         app:ms_arrowSize="16dp"
-        app:ms_floatingLabelColor="#00FF00"
-        app:ms_floatingLabelText="floating label"
+        app:ms_floatingLabelColor="#03dac5"
+        app:ms_floatingLabelText="Category"
         app:ms_hint="Category"
         app:ms_multiline="true" />
 
