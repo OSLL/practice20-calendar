@@ -41,6 +41,9 @@ class MainActivity : AppCompatActivity() {
 
                     // Модуль по открытию страницы событий на дату
                     val intent = Intent(this@MainActivity, RecycleViewActivity::class.java)
+                    intent.putExtra("iDate", date)
+                    intent.putExtra("iMonth", month)
+                    intent.putExtra("iYear", year)
                     startActivity(intent)
                 }
 
